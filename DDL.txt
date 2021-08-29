@@ -1,0 +1,85 @@
+CREATE DATABASE structure;
+USE structure;
+
+CREATE TABLE Department(department_id INT(10) PRIMARY KEY NOT NULL ,
+	                department_name VARCHAR(100) NOT NULL);
+
+CREATE TABLE professor(professor_id INT(20) PRIMARY KEY NOT NULL ,
+	               professor_name VARCHAR(100) NOT NULL);
+
+CREATE TABLE Course(Course_id VARCHAR(10) NOT NULL ,
+	               Course_name VARCHAR(1000) NOT NULL,
+                   course_discription VARCHAR(200) NOT NULL,
+                   department_id INT(10) NOT NULL,
+                   professor_id INT(10)  NOT NULL,
+                   PRIMARY KEY (Course_id),
+   		   FOREIGN KEY (department_id) REFERENCES department(department_id) ON DELETE cascade,
+                   FOREIGN KEY (professor_id) REFERENCES professor(professor_id)
+                   ON DELETE cascade);
+
+INSERT INTO `professor`(`Professor_id`, `Professor_name`)
+       VALUES (122,"Ahmad");
+INSERT INTO `professor`(`Professor_id`, `Professor_name`)
+       VALUES (123,"John");
+INSERT INTO `professor`(`Professor_id`, `Professor_name`)
+       VALUES (146,"Arch");
+INSERT INTO `professor`(`Professor_id`, `Professor_name`) 
+       VALUES (165,"Sam");
+INSERT INTO `professor`(`Professor_id`, `Professor_name`) 
+       VALUES (345,"Tarneem");
+
+
+INSERT INTO `department`(`department_id`, `department_name`) 
+       VALUES (1,"English Department");
+INSERT INTO `department`(`department_id`, `department_name`) 
+       VALUES (2,"Maths Department");
+INSERT INTO `department`(`department_id`, `department_name`) 
+       VALUES (3,"AI Department");
+INSERT INTO `department`(`department_id`, `department_name`) 
+       VALUES (4,"Systems Department");
+INSERT INTO `department`(`department_id`, `department_name`) 
+       VALUES (5,"Construction Department");
+INSERT INTO `department` ( `department_id` , `department_name` )
+       VALUES ( 6, "Data Base Department" );
+
+
+
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_discription`, `department_id`, `professor_id`) 
+       VALUES (C200,"Data Base","This course will cover concepts like Structured Qu...",6,123);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_discription`, `department_id`, `professor_id`) 
+       VALUES (C433,"Programming","Coding & Programming Courses. Learn how to code or...",6,123);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_discription`, `department_id`, `professor_id`) 
+       VALUES (CV45,"Cyber Security","this course introduces students to cryptography, se..",6,123);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (V39,"Drawing","learn about a range of tools used for levelling, cu...",5,165);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (JN89,"Physics","This course introduces the fundamental elements of..",5,165);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (M67,"Materials","This course focuses on the fundamentals of structu..",5,165);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (LS65,"Land Scaping","tThe course focuses on the selection of components,",5,165);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (G59,"Systems","This course teaches the basic operating system abs...",4,123);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (CS23,"Control Systems","An undergraduate course offered by the RS Electric",4,146);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (SW11,"Switching","Course purpose The aim of this course is that the ...",4,345);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (D12,"Artificial Intelligence","This course will introduce you to the basics of AI.",3,123);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (RC45,"Robotics","Robotics is a lab-based course that uses a hands-o",3,123);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (AE67,"Automation Engineering","This course offers an in-depth study of the princi..",3,146);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (OO63,"Calculus","This calculus course covers differentiation and in..",2,146);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (MA46,"Math III","n Mathematics III, students understand the structu..",2,345);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (PM90,"Pure Mathematics","tPure mathematics is the study of the basic concept.",2,146);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (H10,"English","Learning how to write , read and speak in English ...",1,122);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (H499,"Human Rights","This interactive course offers an introduction to ...",1,122);
+INSERT INTO `course`(`Course_id`, `Course_name`, `course_description`, `department_id`, `professor_id`) 
+       VALUES (JB45,"Literature","An introduction to reading and analyzing these pri..",1,122);
+
